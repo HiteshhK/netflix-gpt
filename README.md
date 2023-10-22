@@ -19,7 +19,9 @@
 - BugFix: Signup user diaplyName and profile picture update
 - BugFix: if user is not logged in redirect /browse to login page and vice-versa
 - Unsubscribed to the onAuthStateChanged callback
--- Added hardcoded values to the constant file
+- Added hardcoded values to the constant file
+- Register TMDB API & create an app & get access token
+- Get data from TMDB now playing movies list API
 
 
 # Features:

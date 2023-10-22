@@ -3,16 +3,15 @@ import Header from './Header';
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from '../utils/firebase';
 import { checkValidateData } from '../utils/validate';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import {POSTER, USER_AVATAR_DEFAULT} from '../utils/constants'
 const Login = () => {
 const [isSignInForm,setIsSignInForm]= useState(true);
 const name = useRef(null);
 const email = useRef(null);
 const pass = useRef(null);
 const [errState,setErrState]=useState(null);
-const navigate = useNavigate();
 const dispatch=useDispatch();
 const toggleSignInForm=()=>{
     setIsSignInForm(!isSignInForm);
@@ -30,11 +29,10 @@ const handleButtonClick = () => {
                 // ...
                 updateProfile(user,{
                     displayName:name.current.value,
-                    photoURL:'https://avatars.githubusercontent.com/u/27858689?v=4'
+                    photoURL:USER_AVATAR_DEFAULT
                 }).then(()=>{
                     const {uid,displayName,email,photoURL}=auth.currentUser;
                     dispatch(addUser({uid:uid,displayName:displayName,photoURL:photoURL,email:email}));
-                    navigate("/browse");
                 }).catch(err=>{
                     setErrState({type:"auth",msg:err.errorMessage});
                 });
@@ -63,7 +61,7 @@ const handleButtonClick = () => {
         <Header/>
         <div className='absolute'>
             <img 
-                src="https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/7fb62e44-31fd-4e1f-b6ad-0b5c8c2a20ef/IN-en-20231009-popsignuptwoweeks-perspective_alpha_website_small.jpg" 
+                src={POSTER} 
                 alt="logo"
             />
         </div>

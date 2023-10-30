@@ -10,7 +10,7 @@ export const API_OPTIONS={
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNjJkMDVkOGViMWI1ODgzYjc1Y2UwYjc3NWFjODQ5ZCIsInN1YiI6IjY1MzRjNzNkYzE0ZmVlMDBhZDllMzAwMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MAMuguq-fOyKT-jcM2WTBYBERRsib9SWVrfVHCZff3I'
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNjJkMDVkOGViMWI1ODgzYjc1Y2UwYjc3NWFjODQ5ZCIsInN1YiI6IjY1MzRjNzNkYzE0ZmVlMDBhZDllMzAwMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MAMuguq-fOyKT-jcM2WTBYBERRsib9SWVrfVHCZff3I` //${process.env.REACT_APP_TMDB_KEY}
     }
   };
 

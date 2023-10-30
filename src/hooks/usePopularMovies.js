@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 
 const usePopularMovies=()=>{
+    const popularMovies=useSelector(store=>store.movies.popularMovies);
+    
     const dispatch=useDispatch();
     const url = 'https://api.themoviedb.org/3/movie/popular?page=1';
   
@@ -14,7 +16,7 @@ const usePopularMovies=()=>{
     }
   
     useEffect(()=>{
-        getPopularMoves();
+      !popularMovies && getPopularMoves();
     },[])
 }
 

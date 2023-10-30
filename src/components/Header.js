@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addUser, removeUser } from '../utils/userSlice'
 import { LOGO } from '../utils/constants'
+import { toggleGptSearchView } from '../utils/gptSlice'
 
 const Header = () => {
   const navigate=useNavigate();
   const dispatch = useDispatch();
+  const showGptSearch=useSelector(store=>store.gpt.showGptSearch);
   const user=useSelector(store=>store.user );
   useEffect(()=>{
    const unsubscribe= onAuthStateChanged(auth,(user)=>{
@@ -28,6 +30,10 @@ const Header = () => {
     return ()=> unsubscribe();
 },[]//call only once
 )
+const handleGptSearchClick=()=>{
+  // Toggle GPT search
+  dispatch(toggleGptSearchView());
+}
   const handleSignout=()=>{
     signOut(auth).then(()=>{
     }).catch(err=>{
@@ -42,6 +48,8 @@ const Header = () => {
             alt="Logo"
         />
         {user && <div className='flex'>
+          <button className='py-2 px-3 mx-2 my-2 bg-purple-800 text-white rounded-lg'
+          onClick={handleGptSearchClick}>{showGptSearch?"Homepage":"GPT Search"}</button>
           <img className='w-12 h-12' 
                 alt="user-icon" 
                 src={user?.photoURL}/>

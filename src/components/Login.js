@@ -59,13 +59,16 @@ const handleButtonClick = () => {
   return (
     <div>
         <Header/>
-        <div className='absolute'>
+        <div className='absolute w-full'>
             <img 
+                className='h-screen object-cover w-full'
                 src={POSTER} 
                 alt="logo"
             />
         </div>
-    <form onSubmit={(e)=>e.preventDefault()} className='absolute p-12 text-white bg-black w-3/12 my-36 mx-auto right-0 left-0 bg-opacity-80'>
+    <form 
+        onSubmit={(e)=>e.preventDefault()} 
+        className='absolute p-12 text-white bg-black w-full md:w-4/12 my-36 mx-auto right-0 left-0 bg-opacity-80'>
         <h1 className='font-bold text-3xl py-4'>{isSignInForm?"Sign In":"Sign Up"}</h1>
         {!isSignInForm &&<input ref={name} type='text' placeholder='Full Name' className='w-full p-4 my-4 bg-gray-700 rounded-lg'/>}
         <input ref={email} type='text' placeholder='Email Address' className='w-full p-4 my-4 bg-gray-700 rounded-lg'/>

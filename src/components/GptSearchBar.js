@@ -51,8 +51,9 @@ const GptSearchBar = () => {
       dispatch(addGptMovieResult({movieNames:gptMovies,tmdbMovieResults:tmdbResuls}));
   }
   return (
-    <div className='pt-[10%] flex justify-center'>
-        <form onSubmit={(e)=>e.preventDefault()} className='w-1/2 bg-black grid grid-cols-12'>
+    <div className='pt-[40%] md:pt-[10%] flex justify-center'>
+        <form onSubmit={(e)=>e.preventDefault()} 
+              className='w-full md:w-1/2 bg-black grid grid-cols-12'>
             {OPENAI_API_KEY&&<input
                 ref={searchText}
                 type="text"
